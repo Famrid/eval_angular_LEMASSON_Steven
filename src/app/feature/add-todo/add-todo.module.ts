@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { AddTodoRoutingModule } from './add-todo-routing.module';
 import { AddTodoComponent } from './add-todo.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +12,11 @@ import { AddTodoComponent } from './add-todo.component';
   ],
   imports: [
     CommonModule,
-    AddTodoRoutingModule
+    AddTodoRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
-export class AddTodoModule { }
+export class AddTodoModule { 
+  
+}

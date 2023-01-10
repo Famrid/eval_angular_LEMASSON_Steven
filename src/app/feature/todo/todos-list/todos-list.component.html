@@ -1,1 +1,5 @@
-<p>todos-list works!</p>
+<main>
+    <app-todo-details *ngFor="let todo of todosArray" [data]="todo" (removeTodoEvent)="removeTodoEventHandler($event)"></app-todo-details>
+</main>
+
+
