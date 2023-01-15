@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TodosListComponent } from './feature/todo/todos-list/todos-list.component';
 import { TodoDetailsComponent } from './feature/todo/todo-details/todo-details.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,10 @@ import { TodoDetailsComponent } from './feature/todo/todo-details/todo-details.c
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule,
+    BrowserAnimationsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

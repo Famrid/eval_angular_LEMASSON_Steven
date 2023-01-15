@@ -2,7 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { TodoService } from '../todo.service';
 import { Todo } from 'src/app/model/todo';
 import { Observable, map } from 'rxjs';
-import { HttpResponse } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-todos-list',
@@ -16,18 +17,29 @@ export class TodosListComponent implements OnInit{
   numberOfPages!: number;
 
 
-  constructor(private todoService: TodoService) {
+  constructor(private todoService: TodoService, private _snackbar: MatSnackBar) {
     this.todosArray = [];
   }
 
   ngOnInit(): void {
     this.pageIndex = 1;
-    this.getTodos().subscribe((data: Todo[]) => {
-      this.todosArray = data;
-      this.numberOfPages = Math.ceil(this.todosArray.length / 5);
-      console.log(this.numberOfPages);
+    this.getTodos().subscribe({
+      next: (data: Todo[]) => {
+        this.todosArray = data;
+        this.numberOfPages = Math.ceil(this.todosArray.length / 5);
+        this.openSnackBar('Todos fetched', 'CLOSE');
+      },
+      error: (error: HttpErrorResponse) => {
+        this.openSnackBar(error.status + " : " + error.message, 'CLOSE')
+      }
     });
     
+  }
+  
+  openSnackBar(message: string, action: string) {
+    this._snackbar.open(message, action, {
+      duration: 2000,
+    });
   }
 
   getTodos(): Observable<Todo[]> {
