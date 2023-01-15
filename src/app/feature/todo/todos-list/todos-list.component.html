@@ -1,5 +1,11 @@
 <main>
-    <app-todo-details *ngFor="let todo of todosArray" [data]="todo" (removeTodoEvent)="removeTodoEventHandler($event)"></app-todo-details>
+    <ng-container *ngFor="let todo of todosArray; let index = index;">
+        <app-todo-details *ngIf="index >= getStartPage() && index < getEndPage()" [data]="todo" (removeTodoEvent)="removeTodoEventHandler($event)"></app-todo-details>
+    </ng-container> 
+    <section class="todo-actions">
+        <button [disabled]="pageIndex == 1" type="button" (click)="previousButtonHandler()">Précédent</button>
+        <button [disabled]="pageIndex == numberOfPages" type="button" (click)="nextButtonHandler()">Suivant</button>
+    </section>
 </main>
 
 

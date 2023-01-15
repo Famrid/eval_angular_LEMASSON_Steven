@@ -27,5 +27,6 @@ export class AddTodoComponent implements OnInit{
   addTodo() {
     const payload: Title = {"title": this.title?.value}
     this.todosService.addTodo(payload).subscribe((data: Todo) => console.log(data));
+    this.title?.setValue("");
   }
 }

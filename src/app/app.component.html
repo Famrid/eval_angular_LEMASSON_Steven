@@ -1,6 +1,7 @@
-
-
-<app-todos-list></app-todos-list>
-
-
+<header>
+    <nav>
+        <a [routerLink]="['/']" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Display Todos</a>
+        <a [routerLink]="['/add-todo']" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}"> Add Todos</a>
+    </nav>
+</header>
 <router-outlet></router-outlet>

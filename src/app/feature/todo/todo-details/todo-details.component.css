@@ -25,24 +25,7 @@
     margin-right: 10px;
   }
 
-  .todo-actions {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-  }
-
-  .todo-actions button {
-    padding: 10px 20px;
-    border: none;
-    background-color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: color .3s;
-  }
-
-  .todo-actions button:hover {
-    color: rgb(43, 131, 231);
-  }
+  
 
   .todo-remove {
     border: none;
